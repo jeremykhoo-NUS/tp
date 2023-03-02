@@ -38,6 +38,7 @@ User recieves an email for a meeting next week. He is already at his computer. H
 ## **Non-Functional requirements**
 - create meeting object
 - create way for objects to kill themselves
+- ensure that meetings do not interefere with person class
 
 ## **Design**
 
