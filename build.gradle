@@ -6,6 +6,13 @@ plugins {
     id 'jacoco'
 }
 
+
+run {
+    mainClassName = 'seedu.address.Main'
+    classpath = sourceSets.main.runtimeClasspath
+    jvmArgs = ['-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005','-Djava.compiler=NONE', '-Xdebug']
+}
+
 mainClassName = 'seedu.address.Main'
 
 sourceCompatibility = JavaVersion.VERSION_11
