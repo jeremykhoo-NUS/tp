@@ -9,8 +9,6 @@ import java.util.Set;
 
 import seedu.quickcontacts.logic.commands.Command;
 import seedu.quickcontacts.logic.commands.exceptions.CommandException;
-import seedu.quickcontacts.logic.parser.AddCommandParser;
-import seedu.quickcontacts.logic.parser.DeleteCommandParser;
 import seedu.quickcontacts.logic.parser.EditMeetingParser;
 import seedu.quickcontacts.logic.parser.exceptions.ParseException;
 import seedu.quickcontacts.model.Model;
@@ -144,7 +142,6 @@ public class Person {
                 //shouldnot calll we formatted string
             } catch (CommandException e) {
                 //shouldnot calll we formatted string
-                
             }
         }
     }
@@ -153,7 +150,6 @@ public class Person {
      * Confirms the deletion of a name in the system and updates the relevant meeting details in the model
      * according to the changes specified in the provided map.
      *
-     * @param newName The new name to be confirmed.
      * @param map A {@link HashMap} containing the changes to be made to the meeting. The keys in the map represent the
      *            fields to be edited, and the values represent the new values for those fields.
      * @param model The {@link Model} representing the current state of the system.

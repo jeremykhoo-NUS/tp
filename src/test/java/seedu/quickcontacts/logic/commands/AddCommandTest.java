@@ -96,6 +96,11 @@ public class AddCommandTest {
         }
 
         @Override
+        public HashMap<String, String> indexAttendeesDelete(Person person) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void setUserPrefs(ReadOnlyUserPrefs userPrefs) {
             throw new AssertionError("This method should not be called.");
         }
