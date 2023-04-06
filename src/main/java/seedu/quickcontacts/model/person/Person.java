@@ -124,34 +124,6 @@ public class Person {
         return otherPerson.getName().equals(getName())
                 && otherPerson.getTags().equals(getTags());
     }
-    /**
-     * Notifies the system that a meeting name has changed, and updates the meeting details in the model
-     * according to the changes specified in the provided map.
-     *
-     * @param newName The new name for the meeting.
-     * @param map A {@link HashMap} containing the changes to be made to the meeting. The keys in the map represent the
-     *            fields to be edited, and the values represent the new values for those fields.
-     * @param model The {@link Model} representing the current state of the system.
-     */
-    public void tellMeetingNameChanged(Name newName, HashMap<String, String> map, Model model) {
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            String argumentsEditMeeting = entry.getKey() + " " + entry.getValue();
-            String argumentsAdd = " n/" + newName;
-            String argumentsDel = " " + Integer.toString(model.getFilteredPersonList().size() + 1);
-            try {
-                Command command1 = new AddCommandParser().parse(argumentsAdd);
-                command1.execute(model);
-                Command command2 = new EditMeetingParser().parse(argumentsEditMeeting);
-                command2.execute(model);
-                Command command3 = new DeleteCommandParser().parse(argumentsDel);
-                command3.execute(model);
-            } catch (ParseException e) {
-                //should not happen
-            } catch (CommandException e) {
-                //should not happen
-            }
-        }
-    }
 
     /**
      * Confirms the change of a name in the system and updates the relevant meeting details in the model
@@ -169,9 +141,33 @@ public class Person {
                 Command command2 = new EditMeetingParser().parse(argumentsEditMeeting);
                 command2.execute(model);
             } catch (ParseException e) {
-                System.out.println("nope");
+                //shouldnot calll we formatted string
             } catch (CommandException e) {
-                // Handle CommandException
+                //shouldnot calll we formatted string
+                
+            }
+        }
+    }
+
+    /**
+     * Confirms the deletion of a name in the system and updates the relevant meeting details in the model
+     * according to the changes specified in the provided map.
+     *
+     * @param newName The new name to be confirmed.
+     * @param map A {@link HashMap} containing the changes to be made to the meeting. The keys in the map represent the
+     *            fields to be edited, and the values represent the new values for those fields.
+     * @param model The {@link Model} representing the current state of the system.
+     */
+    public void confirmNameDeleted(HashMap<String, String> map, Model model) {
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            String argumentsEditMeeting = entry.getKey() + " " + entry.getValue();
+            try {
+                Command command2 = new EditMeetingParser().parse(argumentsEditMeeting);
+                command2.execute(model);
+            } catch (ParseException e) {
+                //shouldnot calll we formatted string
+            } catch (CommandException e) {
+                //shouldnot calll we formatted string
             }
         }
     }

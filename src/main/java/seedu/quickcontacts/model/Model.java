@@ -111,11 +111,14 @@ public interface Model {
     void setPerson(Person target, Person editedPerson);
 
     /**
-     * Replaces the given person {@code target} with {@code editedPerson}.
-     * {@code target} must exist in the quick book.
-     * The person identity of {@code editedPerson} must not be the same as another existing person in the quick book.
+     * Return hashmap of person and formatstring for editm
      */
     HashMap<String, String> indexAttendees(Person personToEdit, Person target);
+
+    /**
+     * Return hashmap of person and formatstring for editm (delete)
+     */
+    HashMap<String, String> indexAttendeesDelete(Person personToDelete);
 
     /**
      * Replaces the given person {@code target} with {@code editedPerson}.

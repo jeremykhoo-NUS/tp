@@ -2,6 +2,7 @@ package seedu.quickcontacts.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.HashMap;
 import java.util.List;
 
 import seedu.quickcontacts.commons.core.Messages;
@@ -41,6 +42,8 @@ public class DeleteCommand extends Command {
         }
 
         Person personToDelete = lastShownList.get(targetIndex.getZeroBased());
+        HashMap<String, String> indexParticipants = model.indexAttendeesDelete(personToDelete);
+        personToDelete.confirmNameDeleted(indexParticipants, model);
         model.deletePerson(personToDelete);
         return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete));
     }

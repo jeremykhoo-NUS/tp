@@ -149,6 +149,14 @@ public class QuickBook implements ReadOnlyQuickBook {
     }
 
     /**
+     * return hashmap of meeting that have person to edit (key) and string of current attendees edited
+     * (delete)
+     */
+    public HashMap<String, String> indexAttendeesDelete(Person personToDelete) {
+        return meetings.indexAttendeesDelete(personToDelete);
+    }
+
+    /**
      * Replaces the given meeting {@code target} in the list with {@code editedMeeting}.
      * {@code target} must exist in the quick book.
      * The meeting identity of {@code editedMeeting} must not be the same as another existing meeting in the quick

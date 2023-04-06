@@ -84,7 +84,6 @@ public class EditCommand extends Command {
         }
         //set person in meeting must happen first
         HashMap<String, String> indexParticipants = model.indexAttendees(personToEdit, editedPerson);
-        personToEdit.tellMeetingNameChanged(editedPerson.getName(), indexParticipants, model);
         model.setPerson(personToEdit, editedPerson);
         personToEdit.confirmNameChange(editedPerson.getName(), indexParticipants, model);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);

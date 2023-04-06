@@ -89,6 +89,21 @@ public class Meeting {
     }
 
     /**
+     * return subsistuted attendee in formatstring
+     */
+    public String formatAttendeesSubstitutedDelete(Person current) {
+        StringBuilder sb = new StringBuilder();
+        for (Person attendee : attendees) {
+            if (attendee.getName().toString().equals(current.getName().toString())) {
+            } else {
+                sb.append("p/");
+                sb.append(attendee.getName().toString()).append(" ");
+            }
+        }
+        return sb.toString().trim();
+    }
+
+    /**
      * Returns an immutable attendee set, which throws {@code UnsupportedOperationException}
      * if modification is attempted.
      */

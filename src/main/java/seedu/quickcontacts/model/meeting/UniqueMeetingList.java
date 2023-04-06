@@ -71,6 +71,20 @@ public class UniqueMeetingList implements Iterable<Meeting> {
         return hm;
     }
 
+    /**
+     * Sort get hashmap of meeting with person in it and string of current attendees (key)
+     * String of current attendees with the edited name
+     */
+    public HashMap<String, String> indexAttendeesDelete(Person personToDelete) {
+        HashMap<String, String> hm = new HashMap<>();
+        for (int i = 0; i < internalList.size(); i++) {
+            Meeting meeting = internalList.get(i);
+            if (meeting.hasAttendee(personToDelete)) {
+                hm.put(Integer.toString(i + 1), meeting.formatAttendeesSubstitutedDelete(personToDelete));
+            }
+        }
+        return hm;
+    }
 
     /**
      * Replaces the meeting {@code target} in the list with {@code editedMeeting}.

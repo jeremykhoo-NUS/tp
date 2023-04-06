@@ -158,6 +158,14 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public HashMap<String, String> indexAttendeesDelete(Person personToDelete) {
+        requireAllNonNull(personToDelete);
+
+        return quickBook.indexAttendeesDelete(personToDelete);
+    }
+
+
+    @Override
     public Person getPersonByName(Name personName) {
         return quickBook.getPersonByName(personName);
     }
